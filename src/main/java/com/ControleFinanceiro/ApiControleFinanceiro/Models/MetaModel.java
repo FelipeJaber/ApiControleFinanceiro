@@ -1,5 +1,6 @@
 package com.ControleFinanceiro.ApiControleFinanceiro.Models;
 
+import com.ControleFinanceiro.ApiControleFinanceiro.Enums.TipoLancamentoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,13 +20,13 @@ public class MetaModel {
     @Column(name = "id", nullable = false, unique = true, updatable = false)
     UUID idMeta;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_lancamento_id", nullable = false)
-    CategoriaLancamentoModel categoriaLancamento;  // Referência à CategoriaLancamentoModel
-
     @OneToMany(mappedBy = "meta", cascade = CascadeType.ALL)
     List<GrupoModel> grupos;
 
     @Column(name = "valor", nullable = false)
     String valor;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_lancamento", nullable = false)
+    TipoLancamentoEnum tipoLancamento;
 }

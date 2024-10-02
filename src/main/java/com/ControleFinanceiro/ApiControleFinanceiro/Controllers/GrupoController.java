@@ -34,12 +34,12 @@ public class GrupoController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createGrupo(@Valid CreateGrupoRecord createGrupoRecord)throws Exception{
+    public ResponseEntity<?> createGrupo(@RequestBody @Valid CreateGrupoRecord createGrupoRecord)throws Exception{
         return ResponseEntity.ok(createGrupoService.createGrupo(createGrupoRecord));
     }
 
     @PutMapping("/update")
-    public ResponseEntity<?> updateGrupo(@Valid UpdateGrupoRecord updateGrupoRecord)throws Exception{
+    public ResponseEntity<?> updateGrupo(@RequestBody @Valid UpdateGrupoRecord updateGrupoRecord)throws Exception{
         return ResponseEntity.ok(updateGrupoService.updateGrupo(updateGrupoRecord));
     }
 

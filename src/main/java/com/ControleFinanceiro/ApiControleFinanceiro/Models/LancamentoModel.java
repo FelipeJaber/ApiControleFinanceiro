@@ -1,5 +1,7 @@
 package com.ControleFinanceiro.ApiControleFinanceiro.Models;
 
+import com.ControleFinanceiro.ApiControleFinanceiro.Enums.CategoriaLancamentoEnum;
+import com.ControleFinanceiro.ApiControleFinanceiro.Enums.TipoLancamentoEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,13 +35,13 @@ public class LancamentoModel {
     @Column(name = "valor", nullable = false)
     String valor;
 
-    @ManyToOne
-    @JoinColumn(name = "categoria_lancamento_id", nullable = false)
-    CategoriaLancamentoModel categoriaLancamento;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "tipo_lancamento", nullable = false)
+    TipoLancamentoEnum tipoLancamento;
 
-    @ManyToOne
-    @JoinColumn(name = "tipo_lancamento_id", nullable = false)
-    TipoLancamentoModel tipoLancamento;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "categoria_lancamento", nullable = false)
+    CategoriaLancamentoEnum categoriaLancamento;
 
     @OneToMany(mappedBy = "lancamento", cascade = CascadeType.ALL)
     List<GrupoModel> grupos;
