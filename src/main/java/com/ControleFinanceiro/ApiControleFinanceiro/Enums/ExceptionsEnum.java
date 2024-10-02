@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ExceptionsEnum {
     ACCESS_DENIED_INVALID_CREDENTIALS(403, "Access denied, invalid credentials."),
+    ACCESS_DENIED_INSUFFICIENT_PERMISSION(403, "Access denied, insufficient permission."),
     UNHANDLED_EXCEPTION(500, "Unhandled exception."),
     DUPLICATE_DATA(409, "Duplicate data found."),
     DUPLICATE_CPF(409, "Duplicate CPF found."),
@@ -12,6 +13,7 @@ public enum ExceptionsEnum {
     DUPLICATE_EMAIL(409, "Duplicate email address found."),
     INVALID_CPF(400, "Invalid CPF."),
     INVALID_TELEFONE(400, "Invalid telephone number."),
+    INVALID_ID_GRUPO(400, "Invalid group id."),
     INVALID_EMAIL(400, "Invalid email address.");
 
     private final int error_code;

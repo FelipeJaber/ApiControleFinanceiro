@@ -4,7 +4,9 @@ import com.ControleFinanceiro.ApiControleFinanceiro.Enums.ExceptionsEnum;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.LoginRecord;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.RegisterRecord;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Pessoa.UpdatePessoaRecord;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -17,6 +19,7 @@ import java.util.regex.Pattern;
 
 @Data
 @Entity
+@AllArgsConstructor
 @Table(name = "tb_pessoa")
 public class PessoaModel implements UserDetails {
 
@@ -37,12 +40,8 @@ public class PessoaModel implements UserDetails {
     @Column(name = "telefone", nullable = false, unique = true)
     String telefonePessoa;
 
-    public PessoaModel(String nomePessoa, String cpfPessoa, String emailPessoa, String telefonePessoa) {
-        this.nomePessoa = nomePessoa;
-        this.cpfPessoa = cpfPessoa;
-        this.emailPessoa = emailPessoa;
-        this.telefonePessoa = telefonePessoa;
-    }
+    @OneToMany(mappedBy = "donoGrupo", cascade = CascadeType.ALL)
+    List<GrupoModel> grupos;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -50,21 +49,15 @@ public class PessoaModel implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public String getPassword() {
         return null;
     }
 
     @Override
+    @JsonIgnore
     public String getUsername() {
         return null;
-    }
-
-    public PessoaModel(UUID idPessoa, String nomePessoa, String cpfPessoa, String emailPessoa, String telefonePessoa) {
-        this.idPessoa = idPessoa;
-        this.nomePessoa = nomePessoa;
-        this.cpfPessoa = cpfPessoa;
-        this.emailPessoa = emailPessoa;
-        this.telefonePessoa = telefonePessoa;
     }
 
     public PessoaModel() {
