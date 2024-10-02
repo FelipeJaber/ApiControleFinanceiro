@@ -39,7 +39,6 @@ public class SecurityFilter extends OncePerRequestFilter {
             UUID userID = null;
             try {
                 userID = UUID.fromString(login);
-                UserCredentials.setInstance(userID);
             } catch (Exception e) {
                 response.sendError(ExceptionsEnum.ACCESS_DENIED_INVALID_CREDENTIALS.getError_code(), ExceptionsEnum.ACCESS_DENIED_INVALID_CREDENTIALS.getError_text());
             }
@@ -48,7 +47,7 @@ public class SecurityFilter extends OncePerRequestFilter {
 
                 Optional<PessoaModel> cadastro_pessoa_db = pessoaRepository.findById(userID);
                 if(cadastro_pessoa_db.isPresent()){
-
+                    UserCredentials.setInstance(cadastro_pessoa_db.get());
                     var authentication = new UsernamePasswordAuthenticationToken(cadastro_pessoa_db.get().getUsername(), null, cadastro_pessoa_db.get().getAuthorities());
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }

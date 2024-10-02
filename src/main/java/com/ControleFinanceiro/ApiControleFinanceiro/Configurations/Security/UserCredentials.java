@@ -1,18 +1,20 @@
 package com.ControleFinanceiro.ApiControleFinanceiro.Configurations.Security;
 
+import com.ControleFinanceiro.ApiControleFinanceiro.Models.PessoaModel;
+
 import java.util.UUID;
 
 public class UserCredentials {
 
     private static final ThreadLocal<UserCredentials> session = new ThreadLocal<>();
-    private UUID userId;
+    private PessoaModel userModel;
 
-    private UserCredentials(UUID userId) {
-        this.userId = userId;
+    private UserCredentials(PessoaModel user) {
+        this.userModel = user;
     }
 
-    public static void setInstance(UUID userId) {
-        session.set(new UserCredentials(userId));
+    public static void setInstance(PessoaModel user) {
+        session.set(new UserCredentials(user));
     }
 
     public static UserCredentials getInstance() throws Exception {
@@ -23,12 +25,12 @@ public class UserCredentials {
         return userCredentials;
     }
 
-    public UUID getUserId() throws Exception {
-        if (userId == null) throw new Exception("Invalid user id");
-        return userId;
+    public PessoaModel getUserModel() throws Exception {
+        if (userModel == null) throw new Exception("Invalid user id");
+        return userModel;
     }
 
     public static void clear() {
-        session.remove();  // Limpa após a requisição
+        session.remove();
     }
 }

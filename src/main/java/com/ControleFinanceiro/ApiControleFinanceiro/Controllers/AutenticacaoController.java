@@ -2,8 +2,8 @@ package com.ControleFinanceiro.ApiControleFinanceiro.Controllers;
 
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.LoginRecord;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.RegisterRecord;
-import com.ControleFinanceiro.ApiControleFinanceiro.Services.Autenticacao.LoginServices.iLoginService;
-import com.ControleFinanceiro.ApiControleFinanceiro.Services.Autenticacao.RegisterServices.iRegisterService;
+import com.ControleFinanceiro.ApiControleFinanceiro.Services.Controller.Autenticacao.LoginServices.iLoginService;
+import com.ControleFinanceiro.ApiControleFinanceiro.Services.Controller.Autenticacao.RegisterServices.iRegisterService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

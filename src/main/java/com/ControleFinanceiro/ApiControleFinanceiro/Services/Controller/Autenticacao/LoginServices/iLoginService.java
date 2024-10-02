@@ -1,4 +1,4 @@
-package com.ControleFinanceiro.ApiControleFinanceiro.Services.Autenticacao.LoginServices;
+package com.ControleFinanceiro.ApiControleFinanceiro.Services.Controller.Autenticacao.LoginServices;
 
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.LoginRecord;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Responses.Autenticacao.LoginResponseRecord;

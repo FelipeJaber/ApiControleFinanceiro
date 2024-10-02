@@ -1,4 +1,4 @@
-package com.ControleFinanceiro.ApiControleFinanceiro.Services.Autenticacao.LoginServices;
+package com.ControleFinanceiro.ApiControleFinanceiro.Services.Controller.Autenticacao.LoginServices;
 
 import com.ControleFinanceiro.ApiControleFinanceiro.Enums.ExceptionsEnum;
 import com.ControleFinanceiro.ApiControleFinanceiro.Models.PessoaModel;

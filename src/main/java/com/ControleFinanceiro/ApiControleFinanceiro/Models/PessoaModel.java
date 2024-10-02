@@ -3,6 +3,7 @@ package com.ControleFinanceiro.ApiControleFinanceiro.Models;
 import com.ControleFinanceiro.ApiControleFinanceiro.Enums.ExceptionsEnum;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.LoginRecord;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.RegisterRecord;
+import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Pessoa.UpdatePessoaRecord;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -90,6 +91,29 @@ public class PessoaModel implements UserDetails {
 
         this.telefonePessoa = telefone;
         this.nomePessoa = registerRecord.nome();
+    }
+
+    public PessoaModel(UpdatePessoaRecord updatePessoaRecord) throws Exception {
+
+        String cpf = updatePessoaRecord.cpf().replaceAll("[^0-9]", "");
+        if (!isValidCPF(cpf)) {
+            throw new Exception(ExceptionsEnum.INVALID_CPF.name());
+        }
+        this.cpfPessoa = cpf;
+
+        String email = updatePessoaRecord.email();
+        if (!isValidEmail(email)) {
+            throw new Exception(ExceptionsEnum.INVALID_EMAIL.name());
+        }
+        this.emailPessoa = email;
+
+        String telefone = updatePessoaRecord.telefone().replaceAll("[^0-9]", "");
+        if (!isValidTelefone(telefone)) {
+            throw new Exception(ExceptionsEnum.INVALID_TELEFONE.name());
+        }
+
+        this.telefonePessoa = telefone;
+        this.nomePessoa = updatePessoaRecord.nome();
     }
 
     public PessoaModel(LoginRecord loginRecord) throws Exception {

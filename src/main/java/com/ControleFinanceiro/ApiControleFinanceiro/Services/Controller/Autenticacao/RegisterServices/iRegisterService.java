@@ -1,4 +1,4 @@
-package com.ControleFinanceiro.ApiControleFinanceiro.Services.Autenticacao.RegisterServices;
+package com.ControleFinanceiro.ApiControleFinanceiro.Services.Controller.Autenticacao.RegisterServices;
 
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticacao.RegisterRecord;
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Responses.Autenticacao.RegisterResponseRecord;
