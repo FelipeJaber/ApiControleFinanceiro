@@ -14,6 +14,8 @@ public enum ExceptionsEnum {
     INVALID_CPF(400, "Invalid CPF."),
     INVALID_TELEFONE(400, "Invalid telephone number."),
     INVALID_ID_GRUPO(400, "Invalid group id."),
+    INVALID_ID_LANCAMENTO(400, "Invalid lancamento id."),
+    INVALID_ID_META(400, "Invalid meta id."),
     INVALID_EMAIL(400, "Invalid email address.");
 
     private final int error_code;

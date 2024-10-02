@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -29,11 +30,10 @@ public class GrupoModel {
     @JoinColumn(name = "dono_id", nullable = false)
     PessoaModel donoGrupo;
 
-    @ManyToOne
-    @JoinColumn(name = "meta_id", nullable = false)
-    MetaModel meta;
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
+    private List<LancamentoModel> lancamentos;
 
-    @ManyToOne
-    @JoinColumn(name = "lancamento_id", nullable = false)
-    LancamentoModel lancamento;
+    @OneToMany(mappedBy = "grupo", cascade = CascadeType.ALL)
+    private List<MetaModel> metas;
+
 }

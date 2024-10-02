@@ -1,4 +1,6 @@
 package com.ControleFinanceiro.ApiControleFinanceiro.Records.Responses.Lancamento;
 
-public record UpdateLancamentoResponseRecord() {
+import com.ControleFinanceiro.ApiControleFinanceiro.Models.LancamentoModel;
+
+public record UpdateLancamentoResponseRecord(LancamentoModel lancamentoatualizado) {
 }

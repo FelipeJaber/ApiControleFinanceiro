@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -15,18 +15,20 @@ import java.util.UUID;
 @NoArgsConstructor
 @Table(name = "tb_meta")
 public class MetaModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false, unique = true, updatable = false)
-    UUID idMeta;
+    private UUID id;
 
-    @OneToMany(mappedBy = "meta", cascade = CascadeType.ALL)
-    List<GrupoModel> grupos;
+    @ManyToOne
+    @JoinColumn(name = "grupo_id", nullable = false)
+    private GrupoModel grupo;
 
     @Column(name = "valor", nullable = false)
-    String valor;
+    private BigDecimal valor;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "tipo_lancamento", nullable = false)
-    TipoLancamentoEnum tipoLancamento;
+    private TipoLancamentoEnum tipoLancamento;
 }

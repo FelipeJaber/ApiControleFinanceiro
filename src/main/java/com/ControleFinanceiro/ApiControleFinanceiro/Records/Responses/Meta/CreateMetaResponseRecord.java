@@ -1,4 +1,6 @@
 package com.ControleFinanceiro.ApiControleFinanceiro.Records.Responses.Meta;
 
-public record CreateMetaResponseRecord() {
+import com.ControleFinanceiro.ApiControleFinanceiro.Models.MetaModel;
+
+public record CreateMetaResponseRecord(MetaModel meta) {
 }

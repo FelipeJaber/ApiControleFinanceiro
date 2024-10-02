@@ -26,22 +26,22 @@ public class PessoaModel implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", updatable = false, nullable = false, unique = true)
-    UUID idPessoa;
+    private UUID idPessoa;
 
     @Column(name = "nome", nullable = false, unique = true)
-    String nomePessoa;
+    private String nomePessoa;
 
     @Column(name = "cpf", nullable = false, unique = true)
-    String cpfPessoa;
+    private String cpfPessoa;
 
     @Column(name = "email", nullable = false, unique = true)
-    String emailPessoa;
+    private String emailPessoa;
 
     @Column(name = "telefone", nullable = false, unique = true)
-    String telefonePessoa;
+    private String telefonePessoa;
 
     @OneToMany(mappedBy = "donoGrupo", cascade = CascadeType.ALL)
-    List<GrupoModel> grupos;
+    private List<GrupoModel> grupos;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
