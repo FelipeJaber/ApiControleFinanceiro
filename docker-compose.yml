@@ -1,6 +1,6 @@
 services:
 
-  ApiControleFinanceiro:
+  api_controle_financeiro:
     build:
       context: ./
       dockerfile: dockerfile
@@ -103,6 +103,42 @@ services:
       "
     depends_on:
       - postgres_primary
+    networks:
+      - pgnet
+
+  pgpool:
+    image: pgpool/pgpool
+    container_name: pgpool
+    environment:
+      - PGPOOL_PARAMS_LOAD_BALANCE_MODE=on
+      - PGPOOL_PARAMS_MASTER_SLAVE_MODE=on
+      - PGPOOL_PARAMS_MASTER_SLAVE_SUB_MODE=write_only
+      - PGPOOL_PARAMS_POOL_MODE=session
+      - PGPOOL_PARAMS_LOG_PER_NODE_STATEMENT=all
+      - PGPOOL_PARAMS_LOG_STATEMENT=all
+      - PGPOOL_PARAMS_LOG_CONNECTIONS=password
+      - PGPOOL_PARAMS_LOG_DISCONNECTIONS=postgres
+      - PGPOOL_PARAMS_SR_CHECK_USER=postgres
+      - PGPOOL_PARAMS_SR_CHECK_PASSWORD=password
+      - PGPOOL_PARAMS_POSTGRES_USER=postgres
+      - PGPOOL_PARAMS_POSTGRES_PASSWORD=password
+      - PGPOOL_ADMIN_PASSWORD=admin_password
+      - PGPOOL_PASSWORD=password
+      - PGPOOL_PCP_USER=admin
+      - PGPOOL_PCP_PASSWORD=password
+      - PGPOOL_PARAMS_BACKEND_HOSTNAME0=pg_primary
+      - PGPOOL_PARAMS_BACKEND_PORT0=5432
+      - PGPOOL_PARAMS_BACKEND_WEIGHT0=1
+      - PGPOOL_PARAMS_BACKEND_HOSTNAME1=pg_replica_1
+      - PGPOOL_PARAMS_BACKEND_PORT1=5432
+      - PGPOOL_PARAMS_BACKEND_WEIGHT1=1
+      - PGPOOL_PARAMS_BACKEND_HOSTNAME2=pg_replica_2
+      - PGPOOL_PARAMS_BACKEND_PORT2=5432
+      - PGPOOL_PARAMS_BACKEND_WEIGHT2=1
+    ports:
+      - "5430:9999"
+    volumes:
+      - ./pgpool.conf:/opt/pgpool-II/etc/pgpool.conf
     networks:
       - pgnet
 
