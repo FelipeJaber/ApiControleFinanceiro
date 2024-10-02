@@ -41,4 +41,9 @@ public class LancamentoController {
     ResponseEntity<?> getAllLancamentos(@PathVariable @Valid UUID id_grupo)throws Exception{
         return ResponseEntity.ok(getAllLancamentosService.getAllLancamentos(id_grupo));
     }
+
+    @DeleteMapping("/delete/{id_grupo}")
+    ResponseEntity<?> deleteLancamento(@PathVariable @Valid UUID id_grupo)throws Exception{
+        return ResponseEntity.ok(getAllLancamentosService.getAllLancamentos(id_grupo));
+    }
 }

@@ -6,9 +6,6 @@ import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Autenticaca
 import com.ControleFinanceiro.ApiControleFinanceiro.Records.Responses.Autenticacao.RegisterResponseRecord;
 import com.ControleFinanceiro.ApiControleFinanceiro.Repositories.iPessoaRepository;
 import com.ControleFinanceiro.ApiControleFinanceiro.Services.Token.TokenService;
-import com.ControleFinanceiro.ApiControleFinanceiro.Services.Validacoes.ValidacaoCPF.iValidacaoCPFService;
-import com.ControleFinanceiro.ApiControleFinanceiro.Services.Validacoes.ValidacaoEmail.iValidacaoEmailService;
-import com.ControleFinanceiro.ApiControleFinanceiro.Services.Validacoes.ValidacaoTelefone.iValidacaoTelefoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -16,17 +13,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class RegisterService implements iRegisterService{
 
-    iValidacaoCPFService validacaoCPFService;
-    iValidacaoEmailService validacaoEmailService;
-    iValidacaoTelefoneService validacaoTelefoneService;
     TokenService tokenService;
     iPessoaRepository pessoaRepository;
 
     @Autowired
-    public RegisterService(iValidacaoCPFService validacaoCPFService, iValidacaoEmailService validacaoEmailService, iValidacaoTelefoneService validacaoTelefoneService, TokenService tokenService, iPessoaRepository pessoaRepository) {
-        this.validacaoCPFService = validacaoCPFService;
-        this.validacaoEmailService = validacaoEmailService;
-        this.validacaoTelefoneService = validacaoTelefoneService;
+    public RegisterService(TokenService tokenService, iPessoaRepository pessoaRepository) {
         this.tokenService = tokenService;
         this.pessoaRepository = pessoaRepository;
     }
