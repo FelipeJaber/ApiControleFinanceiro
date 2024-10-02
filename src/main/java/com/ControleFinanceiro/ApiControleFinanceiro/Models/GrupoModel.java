@@ -28,4 +28,12 @@ public class GrupoModel {
     @JsonIgnore
     @JoinColumn(name = "dono_id", nullable = false)
     PessoaModel donoGrupo;
+
+    @ManyToOne
+    @JoinColumn(name = "meta_id", nullable = false)
+    MetaModel meta;
+
+    @ManyToOne
+    @JoinColumn(name = "lancamento_id", nullable = false)
+    LancamentoModel lancamento;
 }
