@@ -1,9 +1,0 @@
-package com.ControleFinanceiro.ApiControleFinanceiro.Services.Controller.Lancamento.UpdateLancamentoServices;
-
-import com.ControleFinanceiro.ApiControleFinanceiro.Records.Requests.Lancamento.UpdateLancamentoRecord;
-import com.ControleFinanceiro.ApiControleFinanceiro.Records.Responses.Lancamento.UpdateLancamentoResponseRecord;
-import com.ControleFinanceiro.ApiControleFinanceiro.Records.Responses.Meta.UpdateMetaResponseRecord;
-
-public interface iUpdateLancamentoService {
-    public UpdateLancamentoResponseRecord updateLancamento(UpdateLancamentoRecord updateLancamentoRecord) throws Exception;
-}

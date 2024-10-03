@@ -1,0 +1,8 @@
+package com.controle_financeiro.api_controle_financeiro.services.controller.Lancamento.UpdateLancamentoServices;
+
+import com.controle_financeiro.api_controle_financeiro.records.requests.lancamento.UpdateLancamentoRecord;
+import com.controle_financeiro.api_controle_financeiro.records.responses.lancamento.UpdateLancamentoResponseRecord;
+
+public interface iUpdateLancamentoService {
+    public UpdateLancamentoResponseRecord updateLancamento(UpdateLancamentoRecord updateLancamentoRecord) throws Exception;
+}

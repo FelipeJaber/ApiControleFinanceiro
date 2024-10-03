@@ -1,0 +1,8 @@
+package com.controle_financeiro.api_controle_financeiro.services.controller.Lancamento.CreateLancamentoServices;
+
+import com.controle_financeiro.api_controle_financeiro.records.requests.lancamento.CreateLancamentoRecord;
+import com.controle_financeiro.api_controle_financeiro.records.responses.lancamento.CreateLancamentoResponseRecord;
+
+public interface iCreateLancamentoService {
+    public CreateLancamentoResponseRecord createLancamento(CreateLancamentoRecord createLancamentoRecord) throws Exception;
+}
