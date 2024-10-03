@@ -3,7 +3,7 @@ package com.controle_financeiro.api_controle_financeiro.configurations.security;
 import com.controle_financeiro.api_controle_financeiro.enums.ExceptionsEnum;
 import com.controle_financeiro.api_controle_financeiro.models.PessoaModel;
 import com.controle_financeiro.api_controle_financeiro.repositories.iPessoaRepository;
-import com.controle_financeiro.api_controle_financeiro.services.Token.TokenService;
+import com.controle_financeiro.api_controle_financeiro.services.token.TokenService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

@@ -1,4 +1,4 @@
-package com.controle_financeiro.api_controle_financeiro.services.controller.grupo_services;
+package com.controle_financeiro.api_controle_financeiro.services.grupo_services;
 
 import com.controle_financeiro.api_controle_financeiro.records.requests.grupo.CreateGrupoRecord;
 import com.controle_financeiro.api_controle_financeiro.records.requests.grupo.UpdateGrupoRecord;

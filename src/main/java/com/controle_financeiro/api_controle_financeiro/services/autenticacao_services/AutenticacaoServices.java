@@ -1,4 +1,4 @@
-package com.controle_financeiro.api_controle_financeiro.services.controller.autenticacao_services;
+package com.controle_financeiro.api_controle_financeiro.services.autenticacao_services;
 
 import com.controle_financeiro.api_controle_financeiro.enums.ExceptionsEnum;
 import com.controle_financeiro.api_controle_financeiro.models.PessoaModel;
@@ -7,7 +7,7 @@ import com.controle_financeiro.api_controle_financeiro.records.requests.autentic
 import com.controle_financeiro.api_controle_financeiro.records.responses.autenticacao.LoginResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.autenticacao.RegisterResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.repositories.iPessoaRepository;
-import com.controle_financeiro.api_controle_financeiro.services.Token.TokenService;
+import com.controle_financeiro.api_controle_financeiro.services.token.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;

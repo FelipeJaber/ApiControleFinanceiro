@@ -36,6 +36,7 @@ public class PessoaModel implements UserDetails {
     @Column(name = "telefone", nullable = false, unique = true)
     private String telefonePessoa;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "donoGrupo", cascade = CascadeType.ALL)
     private List<GrupoModel> grupos;
 

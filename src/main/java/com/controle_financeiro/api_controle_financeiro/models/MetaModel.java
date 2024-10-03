@@ -1,6 +1,7 @@
 package com.controle_financeiro.api_controle_financeiro.models;
 
 import com.controle_financeiro.api_controle_financeiro.enums.TipoLancamentoEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -16,6 +17,7 @@ public class MetaModel {
     private UUID id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "grupo_id", nullable = false)
     private GrupoModel grupo;
 

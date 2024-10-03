@@ -1,4 +1,4 @@
-package com.controle_financeiro.api_controle_financeiro.services.controller.autenticacao_services;
+package com.controle_financeiro.api_controle_financeiro.services.autenticacao_services;
 
 import com.controle_financeiro.api_controle_financeiro.records.requests.autenticacao.LoginRecord;
 import com.controle_financeiro.api_controle_financeiro.records.requests.autenticacao.RegisterRecord;

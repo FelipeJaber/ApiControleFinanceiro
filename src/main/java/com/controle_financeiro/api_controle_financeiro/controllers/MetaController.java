@@ -2,13 +2,12 @@ package com.controle_financeiro.api_controle_financeiro.controllers;
 
 import com.controle_financeiro.api_controle_financeiro.records.requests.meta.CreateMetaRecord;
 import com.controle_financeiro.api_controle_financeiro.records.requests.meta.UpdateMetaRecord;
-import com.controle_financeiro.api_controle_financeiro.records.responses.autenticacao.RegisterResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.meta.CreateMetaResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.meta.GetAllMetasResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.meta.UpdateMetaResponseRecord;
-import com.controle_financeiro.api_controle_financeiro.services.controller.Meta.CreateMetaServices.iCreateMetaService;
-import com.controle_financeiro.api_controle_financeiro.services.controller.Meta.GetAllMetasServices.iGetAllMetasService;
-import com.controle_financeiro.api_controle_financeiro.services.controller.Meta.UpdateMetaServices.iUpdateMetaService;
+import com.controle_financeiro.api_controle_financeiro.services.meta.CreateMetaServices.iCreateMetaService;
+import com.controle_financeiro.api_controle_financeiro.services.meta.GetAllMetasServices.iGetAllMetasService;
+import com.controle_financeiro.api_controle_financeiro.services.meta.UpdateMetaServices.iUpdateMetaService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

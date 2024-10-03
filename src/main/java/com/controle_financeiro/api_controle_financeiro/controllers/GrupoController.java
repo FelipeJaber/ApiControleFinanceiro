@@ -2,9 +2,8 @@ package com.controle_financeiro.api_controle_financeiro.controllers;
 
 import com.controle_financeiro.api_controle_financeiro.records.requests.grupo.CreateGrupoRecord;
 import com.controle_financeiro.api_controle_financeiro.records.requests.grupo.UpdateGrupoRecord;
-import com.controle_financeiro.api_controle_financeiro.records.responses.autenticacao.RegisterResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.grupo.*;
-import com.controle_financeiro.api_controle_financeiro.services.controller.grupo_services.iGrupoServices;
+import com.controle_financeiro.api_controle_financeiro.services.grupo_services.iGrupoServices;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

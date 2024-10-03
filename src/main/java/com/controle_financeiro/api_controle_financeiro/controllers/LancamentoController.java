@@ -2,14 +2,11 @@ package com.controle_financeiro.api_controle_financeiro.controllers;
 
 import com.controle_financeiro.api_controle_financeiro.records.requests.lancamento.CreateLancamentoRecord;
 import com.controle_financeiro.api_controle_financeiro.records.requests.lancamento.UpdateLancamentoRecord;
-import com.controle_financeiro.api_controle_financeiro.records.responses.autenticacao.RegisterResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.lancamento.CreateLancamentoResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.lancamento.DeleteLancamentoResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.lancamento.GetAllLancamentosResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.lancamento.UpdateLancamentoResponseRecord;
-import com.controle_financeiro.api_controle_financeiro.services.controller.Lancamento.CreateLancamentoServices.iCreateLancamentoService;
-import com.controle_financeiro.api_controle_financeiro.services.controller.Lancamento.GetAllLancamentosServices.iGetAllLancamentosService;
-import com.controle_financeiro.api_controle_financeiro.services.controller.Lancamento.UpdateLancamentoServices.iUpdateLancamentoService;
+import com.controle_financeiro.api_controle_financeiro.services.lancamento.iLancamentoService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -25,15 +22,11 @@ import java.util.UUID;
 @RequestMapping("/api/lancamento")
 public class LancamentoController {
 
-    iUpdateLancamentoService updateLancamentoService;
-    iCreateLancamentoService createLancamentoService;
-    iGetAllLancamentosService getAllLancamentosService;
+    iLancamentoService lancamentoService;
 
     @Autowired
-    public LancamentoController(iUpdateLancamentoService updateLancamentoService, iCreateLancamentoService createLancamentoService, iGetAllLancamentosService getAllLancamentosService) {
-        this.updateLancamentoService = updateLancamentoService;
-        this.createLancamentoService = createLancamentoService;
-        this.getAllLancamentosService = getAllLancamentosService;
+    public LancamentoController(iLancamentoService lancamentoService) {
+        this.lancamentoService = lancamentoService;
     }
 
     @ApiResponses(value = {
@@ -42,7 +35,7 @@ public class LancamentoController {
     })
     @PostMapping("/create")
     ResponseEntity<?> createLancamento(@RequestBody @Valid CreateLancamentoRecord createLancamentoRecord)throws Exception{
-        return ResponseEntity.ok(createLancamentoService.createLancamento(createLancamentoRecord));
+        return ResponseEntity.ok(lancamentoService.createLancamento(createLancamentoRecord));
     }
 
     @ApiResponses(value = {
@@ -51,7 +44,7 @@ public class LancamentoController {
     })
     @PutMapping("/update")
     ResponseEntity<?> updateLancamento(@RequestBody @Valid UpdateLancamentoRecord updateLancamentoRecord)throws Exception{
-        return ResponseEntity.ok(updateLancamentoService.updateLancamento(updateLancamentoRecord));
+        return ResponseEntity.ok(lancamentoService.updateLancamento(updateLancamentoRecord));
     }
 
     @ApiResponses(value = {
@@ -60,7 +53,7 @@ public class LancamentoController {
     })
     @GetMapping("/getall/{id_grupo}")
     ResponseEntity<?> getAllLancamentos(@PathVariable @Valid UUID id_grupo)throws Exception{
-        return ResponseEntity.ok(getAllLancamentosService.getAllLancamentos(id_grupo));
+        return ResponseEntity.ok(lancamentoService.getAllLancamentos(id_grupo));
     }
 
     @ApiResponses(value = {
@@ -69,6 +62,6 @@ public class LancamentoController {
     })
     @DeleteMapping("/delete/{id_grupo}")
     ResponseEntity<?> deleteLancamento(@PathVariable @Valid UUID id_grupo)throws Exception{
-        return ResponseEntity.ok(getAllLancamentosService.getAllLancamentos(id_grupo));
+        return ResponseEntity.ok(lancamentoService.getAllLancamentos(id_grupo));
     }
 }

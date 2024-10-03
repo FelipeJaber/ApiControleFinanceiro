@@ -1,9 +1,8 @@
 package com.controle_financeiro.api_controle_financeiro.controllers;
 
 import com.controle_financeiro.api_controle_financeiro.records.requests.pessoa.UpdatePessoaRecord;
-import com.controle_financeiro.api_controle_financeiro.records.responses.meta.CreateMetaResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.pessoas.UpdatePessoaResponseRecord;
-import com.controle_financeiro.api_controle_financeiro.services.controller.Pessoa.UpdatePessoaServices.iUpdatePessoaService;
+import com.controle_financeiro.api_controle_financeiro.services.pessoa.update_pessoa_services.iUpdatePessoaService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

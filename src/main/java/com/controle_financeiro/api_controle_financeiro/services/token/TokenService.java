@@ -1,4 +1,4 @@
-package com.controle_financeiro.api_controle_financeiro.services.Token;
+package com.controle_financeiro.api_controle_financeiro.services.token;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
