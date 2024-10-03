@@ -5,9 +5,7 @@ import com.controle_financeiro.api_controle_financeiro.records.requests.meta.Upd
 import com.controle_financeiro.api_controle_financeiro.records.responses.meta.CreateMetaResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.meta.GetAllMetasResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.meta.UpdateMetaResponseRecord;
-import com.controle_financeiro.api_controle_financeiro.services.meta.CreateMetaServices.iCreateMetaService;
-import com.controle_financeiro.api_controle_financeiro.services.meta.GetAllMetasServices.iGetAllMetasService;
-import com.controle_financeiro.api_controle_financeiro.services.meta.UpdateMetaServices.iUpdateMetaService;
+import com.controle_financeiro.api_controle_financeiro.services.meta.iMetaService;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -22,15 +20,11 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/meta")
 public class MetaController {
-    iCreateMetaService createMetaService;
-    iUpdateMetaService updateMetaService;
-    iGetAllMetasService getAllMetasService;
+    iMetaService metaService;
 
     @Autowired
-    public MetaController(iCreateMetaService createMetaService, iUpdateMetaService updateMetaService, iGetAllMetasService getAllMetasService) {
-        this.createMetaService = createMetaService;
-        this.updateMetaService = updateMetaService;
-        this.getAllMetasService = getAllMetasService;
+    public MetaController(iMetaService metaService) {
+        this.metaService = metaService;
     }
 
     @ApiResponses(value = {
@@ -39,7 +33,7 @@ public class MetaController {
     })
     @PostMapping("/create")
     ResponseEntity<?> createMeta(@RequestBody @Valid CreateMetaRecord createMetaRecord)throws Exception{
-        return ResponseEntity.ok(createMetaService.createMeta(createMetaRecord));
+        return ResponseEntity.ok(metaService.createMeta(createMetaRecord));
     }
 
     @ApiResponses(value = {
@@ -48,7 +42,7 @@ public class MetaController {
     })
     @PutMapping("/update")
     ResponseEntity<?> updateMeta(@RequestBody @Valid UpdateMetaRecord updateMetaRecord)throws Exception{
-        return ResponseEntity.ok(updateMetaService.updateMeta(updateMetaRecord));
+        return ResponseEntity.ok(metaService.updateMeta(updateMetaRecord));
     }
 
     @ApiResponses(value = {
@@ -57,6 +51,6 @@ public class MetaController {
     })
     @GetMapping("/getall/{id_grupo}")
     ResponseEntity<?> getAllMetas(@Valid @PathVariable UUID id_grupo)throws Exception{
-        return ResponseEntity.ok(getAllMetasService.getAllMetas(id_grupo));
+        return ResponseEntity.ok(metaService.getAllMetas(id_grupo));
     }
 }
