@@ -13,10 +13,12 @@ import com.controle_financeiro.api_controle_financeiro.records.responses.lancame
 import com.controle_financeiro.api_controle_financeiro.repositories.iGrupoRepository;
 import com.controle_financeiro.api_controle_financeiro.repositories.iLancamentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class LancamentoService implements iLancamentoService{
 
     iGrupoRepository grupoRepository;

@@ -11,10 +11,12 @@ import com.controle_financeiro.api_controle_financeiro.records.responses.meta.Ge
 import com.controle_financeiro.api_controle_financeiro.records.responses.meta.UpdateMetaResponseRecord;
 import com.controle_financeiro.api_controle_financeiro.repositories.iGrupoRepository;
 import com.controle_financeiro.api_controle_financeiro.repositories.iMetaRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 import java.util.UUID;
 
+@Service
 public class MetaService implements iMetaService{
 
     iMetaRepository metaRepository;

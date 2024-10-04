@@ -7,6 +7,7 @@ import com.controle_financeiro.api_controle_financeiro.records.requests.grupo.Cr
 import com.controle_financeiro.api_controle_financeiro.records.requests.grupo.UpdateGrupoRecord;
 import com.controle_financeiro.api_controle_financeiro.records.responses.grupo.*;
 import com.controle_financeiro.api_controle_financeiro.repositories.iGrupoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,11 @@ import java.util.UUID;
 public class GrupoServices implements iGrupoServices{
 
     iGrupoRepository grupoRepository;
+
+    @Autowired
+    public GrupoServices(iGrupoRepository grupoRepository) {
+        this.grupoRepository = grupoRepository;
+    }
 
     @Override
     public UpdateGrupoResponseRecord updateGrupo(UpdateGrupoRecord updateGrupoRecord) throws Exception {
